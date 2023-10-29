@@ -34,13 +34,7 @@ static void print_status_narrow(void) {
     oled_write_ln_P(PSTR("Mode "), false);
     switch (get_highest_layer(layer_state)) {
         case 0:
-            oled_write_ln_P(PSTR(" WIN "), false);
-            break;
-        case 1:
             oled_write_ln_P(PSTR(" MAC "), false);
-            break;
-        case 2:
-            oled_write_ln_P(PSTR(" GAM "), false);
             break;
         default:
             oled_write_ln_P(PSTR(" MOD "), false);
@@ -53,19 +47,10 @@ static void print_status_narrow(void) {
             oled_write_ln_P(PSTR("BASE "), false);
             break;
         case 1:
-            oled_write_ln_P(PSTR("BASE "), false);
-            break;
-        case 2:
-            oled_write_ln_P(PSTR("BASE "), false);
-            break;
-        case 3:
             oled_write_ln_P(PSTR("SYMBO"), false);
             break;
-        case 4:
-            oled_write_ln_P(PSTR("WIN D"), false);
-            break;
-        case 5:
-            oled_write_ln_P(PSTR("MAC D"), false);
+        case 2:
+            oled_write_ln_P(PSTR("UTILS"), false);
             break;
         default:
             oled_write_ln_P(PSTR("Undef"), false);
