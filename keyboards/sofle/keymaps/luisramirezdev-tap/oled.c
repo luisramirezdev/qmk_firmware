@@ -32,9 +32,12 @@ static void render_logo(void) {
 static void print_status_narrow(void) {
     // Print current mode
     oled_write_ln_P(PSTR("Mode "), false);
-    switch (get_highest_layer(layer_state)) {
-        case 0:
+    switch (get_highest_layer(default_layer_state)) {
+        case _BASE:
             oled_write_ln_P(PSTR("MAC T"), false);
+            break;
+        case _GAMING:
+            oled_write_ln_P(PSTR("WOW  "), false);
             break;
         default:
             oled_write_ln_P(PSTR("MOD  "), false);
@@ -45,19 +48,20 @@ static void print_status_narrow(void) {
 
 
     switch (get_highest_layer(layer_state)) {
-        case 0:
+        case _BASE:
+        case _GAMING:
             oled_write_ln_P(PSTR("BASE "), false);
             break;
-        case 1:
+        case _NAV:
             oled_write_ln_P(PSTR("NAV  "), false);
             break;
-        case 2:
+        case _SYM:
             oled_write_ln_P(PSTR("SYM  "), false);
             break;
-        case 3:
+        case _NUM:
             oled_write_ln_P(PSTR("NUM  "), false);
             break;
-        case 4:
+        case _FUN:
             oled_write_ln_P(PSTR("FUN  "), false);
             break;
         default:
